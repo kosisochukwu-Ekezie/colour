@@ -4,9 +4,7 @@ import sys
 
 pg.init()
 
-# ======================
-# SCREEN
-# ======================
+
 
 screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
 WIDTH, HEIGHT = screen.get_width(), screen.get_height()
@@ -14,17 +12,13 @@ pg.display.set_caption("Colour Tap")
 
 clock = pg.time.Clock()
 
-# ======================
-# FONTS
-# ======================
+
 
 small_font = pg.font.Font(None, 30)
 medium_font = pg.font.Font(None, 50)
 large_font = pg.font.Font(None, 80)
 
-# ======================
-# COLOURS
-# ======================
+
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
@@ -35,9 +29,7 @@ BLACK = (0, 0, 0)
 
 safe_colours = [RED, GREEN, BLUE]
 
-# ======================
-# GRID
-# ======================
+
 
 cols, rows = 6, 2
 margin_x = WIDTH // (cols + 1)
@@ -58,9 +50,7 @@ RADIUS = 52
 SPAWN_RATE = 900
 PURPLE_RATE = 0.05
 
-# ======================
-# STATE
-# ======================
+
 
 points = 0
 miss_streak = 0   # tracks safe rounds missed
@@ -77,9 +67,6 @@ def spawn_colors():
 
 spawn_colors()
 
-# ======================
-# START SCREEN
-# ======================
 
 def draw_start():
     screen.fill(WHITE)
@@ -106,9 +93,6 @@ def draw_start():
     pg.display.update()
 
 
-# ======================
-# START
-# ======================
 
 waiting = True
 while waiting:
@@ -129,9 +113,7 @@ while waiting:
     draw_start()
 
 
-# ======================
-# GAME LOOP
-# ======================
+
 
 running = True
 
@@ -154,9 +136,7 @@ while running:
         else:
             miss_streak = 0
 
-    # ======================
-    # INPUT
-    # ======================
+
 
     for event in pg.event.get():
 
@@ -166,9 +146,6 @@ while running:
 
         if event.type == pg.KEYDOWN:
 
-            if event.key == pg.K_ESCAPE:
-                pg.quit()
-                sys.exit()
 
             if event.key == pg.K_SPACE:
 
@@ -177,9 +154,7 @@ while running:
                 else:
                     points += 1
 
-    # ======================
-    # DRAW
-    # ======================
+
 
     screen.fill(WHITE)
 
@@ -200,9 +175,7 @@ while running:
     clock.tick(60)
 
 
-# ======================
-# COUNTDOWN END SCREEN
-# ======================
+
 
 countdown_start = pg.time.get_ticks()
 countdown = 3
